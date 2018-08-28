@@ -1,0 +1,94 @@
+swagger: "2.0"
+x-collection-name: RipaEx
+x-complete: 1
+info:
+  title: RIPA Node Documentation
+  description: this-is-a-documentation-for-ripanodehttpsgithub-comripaexripanode-built-with-swagger-ui-to-make-testing-a-breeze--if-you-find-any-issues-come-over-to-ripaexripanodetestapihttpsgithub-comripaexripanodetestapi-to-open-an-issue-or-even-better-send-a-pr-that-fixes-the-issue-the-community-ssl-public-api-used-as-test-host-is-provided-from-ripaex-iohttpswww-ripaex-io-
+  version: 1.0.0
+host: api.ripaex.io
+basePath: /
+schemes:
+- http
+produces:
+- application/json
+consumes:
+- application/json
+paths:
+  /api/multisignatures:
+    put:
+      summary: Multisignatures
+      description: Create a new multi signature.
+      operationId: multisignatures.addMultisignature
+      x-api-path-slug: apimultisignatures-put
+      parameters:
+      - in: body
+        name: body
+        description: A valid multi signature object
+        schema:
+          $ref: '#/definitions/holder'
+      responses:
+        200:
+          description: OK
+      tags:
+      - Blockchain
+      - Multisignatures
+  /api/multisignatures/accounts:
+    get:
+      summary: Multisignatures Accounts
+      description: Get a list of accounts.
+      operationId: multisignature.getAccounts
+      x-api-path-slug: apimultisignaturesaccounts-get
+      parameters:
+      - in: query
+        name: publicKey
+        description: A valid RIPA Public Key
+      responses:
+        200:
+          description: OK
+      tags:
+      - Blockchain
+      - Multisignatures
+      - Accounts
+  /api/multisignatures/pending:
+    get:
+      summary: Multisignatures Pending
+      description: Get pending multi signature transactions.
+      operationId: multisignatures.pending
+      x-api-path-slug: apimultisignaturespending-get
+      parameters:
+      - in: query
+        name: publicKey
+        description: A valid RIPA Public Key
+      responses:
+        200:
+          description: OK
+      tags:
+      - Blockchain
+      - Multisignatures
+      - Pending
+  /api/multisignatures/sign:
+    post:
+      summary: Multisignatures Sign
+      description: Sign a new multi signature.
+      operationId: multisignatures.sign
+      x-api-path-slug: apimultisignaturessign-post
+      parameters:
+      - in: query
+        name: publicKey
+        description: A valid RIPA Public Key
+      - in: query
+        name: secondSecret
+        description: A valid secondary RIPA Passphrase
+      - in: query
+        name: secret
+        description: A valid RIPA Passphrase
+      - in: query
+        name: transactionId
+        description: A valid transaction ID
+      responses:
+        200:
+          description: OK
+      tags:
+      - Blockchain
+      - Multisignatures
+      - Sign

@@ -1,10 +1,8 @@
----
 swagger: "2.0"
 x-collection-name: Foursquare
 x-complete: 1
 info:
   title: Foursquare
-  description: checkin-explore-your-city-and-connect-people-and-places-bapi-v2-b
   version: 1.0.0
 host: api.foursquare.com
 basePath: /v2/
@@ -34,4 +32,3 @@ paths:
           description: OK
       tags:
       - Multi
----
